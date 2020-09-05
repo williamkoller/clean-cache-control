@@ -1,23 +1,23 @@
-Feature: Cliente online
+## Feature: Cliente online
 
 Como um cliente online
 Quero que o sistema me mostre minhas compras
 Para eu poder controlar minhas despesas
 
-Scenario: Obter dados da API
+### Scenario: Obter dados da API
 
 Dado que o cliente tem conexão com a internet
 Quando o cliente solicitar para carregar suas compras
 Então o sistema deve exibir suas compras vindo de uma API
 E substituir os dados do cache com os dados mais atuais
 
-Feature: Cliente offline
+## Feature: Cliente offline
 
 Como um cliente offline
 Quero que o sistema me mostre minhas últimas compras gravadas
 Para eu poder ver minhas despesas mesmo sem ter internet
 
-Scenario: Obter dados do Cache
+### Scenario: Obter dados do Cache
 
 Dado que o cliente não tem conexão com a internet
 E exista algum dado gravado no cache
