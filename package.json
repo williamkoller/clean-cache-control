@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache --watchAll"
+    "test": "jest --no-cache --watchAll",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:ci": "npm test -- --coverage"
   },
   "author": "William Koller",
   "license": "MIT",
