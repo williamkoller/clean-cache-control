@@ -44,7 +44,7 @@ export class CacheStoreSpy implements CacheStore {
   }
 }
 
-export module CacheStoreSpy {
+export namespace CacheStoreSpy {
   export enum Action {
     delete,
     insert,
