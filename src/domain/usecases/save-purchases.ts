@@ -1,5 +1,5 @@
 export interface SavePurchases {
-  save: (purchases: Array<SavePurchases.Params>) => Promise<void>
+  save: (purchases: SavePurchases.Params[]) => Promise<void>
 }
 
 namespace SavePurchases {
