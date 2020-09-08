@@ -1,6 +1,6 @@
 import { CacheStore } from '@/data/protocols/cache/cache-store'
 import { LocalSavePurchases } from '@/data/usecases'
-import { SavePurchases } from '@/domain'
+import { SavePurchases } from '@/domain/usecases'
 
 class CacheStoreSpy implements CacheStore {
   deleteCallsCount = 0
@@ -9,27 +9,27 @@ class CacheStoreSpy implements CacheStore {
   insertKey: string
   insertValues: Array<SavePurchases.Params> = []
 
-  delete (key: string): void {
+  delete(key: string): void {
     this.deleteCallsCount++
     this.deleteKey = key
   }
 
-  insert (key: string, value: any): void {
+  insert(key: string, value: any): void {
     this.insertCallsCount++
     this.insertKey = key
     this.insertValues = value
   }
 
-  simulateDeleteError (): void {
+  simulateDeleteError(): void {
     jest.spyOn(CacheStoreSpy.prototype, 'delete').mockImplementationOnce(() => {
       throw new Error()
     })
   }
 
-  simulateInsertError (): void {
+  simulateInsertError(): void {
     jest.spyOn(CacheStoreSpy.prototype, 'insert').mockImplementationOnce(() => {
-    throw new Error()
-  })
+      throw new Error()
+    })
   }
 }
 
