@@ -4,6 +4,6 @@ export interface SavePurchases {
   save: (purchases: SavePurchases.Params[]) => Promise<void>
 }
 
-export module SavePurchases {
+export namespace SavePurchases {
   export type Params = PurchaseModel
 }
