@@ -1,5 +1,5 @@
 import { CacheStore } from '@/data/protocols/cache'
-import { SavePurchases, LoadPurchases } from '@/domain/usecases'
+import { SavePurchases } from '@/domain/usecases'
 
 export class CacheStoreSpy implements CacheStore {
 	actions: Array<CacheStoreSpy.Action> = []
