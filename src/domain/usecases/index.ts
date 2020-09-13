@@ -1,1 +1,2 @@
-export * from '@/domain/usecases/save-purchases'
+export * from './save-purchases'
+export * from './load-purchases'
