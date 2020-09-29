@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest --no-cache --watchAll",
     "test:ci": "npm test -- --coverage",
+    "test:staged": "npm test -- --findRelatedTests",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },

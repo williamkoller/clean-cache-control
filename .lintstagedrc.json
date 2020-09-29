@@ -1,7 +1,6 @@
 {
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix"
-    ]
-  }
+  "*.ts": [
+    "eslint 'src/**' --fix",
+    "npm run test:staged"
+  ]
 }

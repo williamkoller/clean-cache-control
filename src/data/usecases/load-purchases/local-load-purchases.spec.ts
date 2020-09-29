@@ -1,4 +1,4 @@
-import { CacheStoreSpy, mockPurchases, getCacheExpirationDate, Action } from '@/data/tests'
+import { CacheStoreSpy, mockPurchases, getCacheExpirationDate, Action } from '@/data/test'
 import { LocalLoadPurchases } from '@/data/usecases'
 
 type SutTypes = {

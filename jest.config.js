@@ -6,5 +6,12 @@ module.exports = {
   },
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1'
-  }
+  },
+  collectCovaregeFrom: [
+    '<rootDir>/src/**/*.ts',
+    '!**/test/**'
+
+  ],
+  coverageDirectory: 'coverage',
+
 }
