@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache --watchAll",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:ci": "npm test -- --coverage",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:staged": "npm test -- --findRelatedTests",
     "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
