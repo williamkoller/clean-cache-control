@@ -1,4 +1,4 @@
-import { CacheStoreSpy, mockPurchases, getCacheExpirationDate } from '@/data/tests'
+import { CacheStoreSpy, mockPurchases, getCacheExpirationDate, Action } from '@/data/tests'
 import { LocalLoadPurchases } from '@/data/usecases'
 
 type SutTypes = {
@@ -25,7 +25,7 @@ describe('LocalLoadPurchases', () => {
     const { cacheStore, sut } = makeSut()
     cacheStore.simulateFetchError()
     const purchases = await sut.loadAll()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch])
+    expect(cacheStore.actions).toEqual([Action.fetch])
     expect(purchases).toEqual([])
   })
 
@@ -39,7 +39,7 @@ describe('LocalLoadPurchases', () => {
       value: mockPurchases()
     }
     const purchases = await sut.loadAll()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch])
+    expect(cacheStore.actions).toEqual([Action.fetch])
     expect(cacheStore.fetchKey).toBe('purchases')
     expect(purchases).toEqual(cacheStore.fetchResult.value)
   })
@@ -54,7 +54,7 @@ describe('LocalLoadPurchases', () => {
       value: mockPurchases()
     }
     const purchases = await sut.loadAll()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch])
+    expect(cacheStore.actions).toEqual([Action.fetch])
     expect(cacheStore.fetchKey).toBe('purchases')
     expect(purchases).toEqual([])
   })
@@ -68,7 +68,7 @@ describe('LocalLoadPurchases', () => {
       value: mockPurchases()
     }
     const purchases = await sut.loadAll()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch])
+    expect(cacheStore.actions).toEqual([Action.fetch])
     expect(cacheStore.fetchKey).toBe('purchases')
     expect(purchases).toEqual([])
   })
@@ -83,7 +83,7 @@ describe('LocalLoadPurchases', () => {
       value: []
     }
     const purchases = await sut.loadAll()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch])
+    expect(cacheStore.actions).toEqual([Action.fetch])
     expect(cacheStore.fetchKey).toBe('purchases')
     expect(purchases).toEqual([])
   })

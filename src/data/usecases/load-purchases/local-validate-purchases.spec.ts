@@ -1,4 +1,4 @@
-import { CacheStoreSpy, getCacheExpirationDate } from '@/data/tests'
+import { CacheStoreSpy, getCacheExpirationDate, Action } from '@/data/tests'
 import { LocalLoadPurchases } from '@/data/usecases'
 
 type SutTypes = {
@@ -25,7 +25,7 @@ describe('LocalLoadPurchases', () => {
     const { cacheStore, sut } = makeSut()
     cacheStore.simulateFetchError()
     sut.validate()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch, CacheStoreSpy.Action.delete])
+    expect(cacheStore.actions).toEqual([Action.fetch, Action.delete])
     expect(cacheStore.deleteKey).toBe('purchases')
   })
 
@@ -36,7 +36,7 @@ describe('LocalLoadPurchases', () => {
     const { cacheStore, sut } = makeSut(currentDate)
     cacheStore.fetchResult = { timestamp }
     sut.validate()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch])
+    expect(cacheStore.actions).toEqual([Action.fetch])
     expect(cacheStore.fetchKey).toBe('purchases')
   })
 
@@ -47,7 +47,7 @@ describe('LocalLoadPurchases', () => {
     const { cacheStore, sut } = makeSut(currentDate)
     cacheStore.fetchResult = { timestamp }
     sut.validate()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch, CacheStoreSpy.Action.delete])
+    expect(cacheStore.actions).toEqual([Action.fetch, Action.delete])
     expect(cacheStore.fetchKey).toBe('purchases')
     expect(cacheStore.deleteKey).toBe('purchases')
   })
@@ -58,7 +58,7 @@ describe('LocalLoadPurchases', () => {
     const { cacheStore, sut } = makeSut(currentDate)
     cacheStore.fetchResult = { timestamp }
     sut.validate()
-    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch, CacheStoreSpy.Action.delete])
+    expect(cacheStore.actions).toEqual([Action.fetch, Action.delete])
     expect(cacheStore.fetchKey).toBe('purchases')
     expect(cacheStore.deleteKey).toBe('purchases')
   })
